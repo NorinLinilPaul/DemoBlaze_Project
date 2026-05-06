@@ -7,6 +7,7 @@ constructor(page){
     this.password=page.locator('#loginpassword')
     this.loginBtn=page.getByRole('button', { name: 'Log in' })
     this.loginLink=page.getByRole('link', { name: 'Log in' })
+    this.logoutLink=page.getByRole('link', { name: 'Log out' })
     
 
         
@@ -19,6 +20,7 @@ async login(userName,password){
         await this.username.fill(userName)
         await this.password.fill(password)
         await this.loginBtn.click()
+        await this.page.waitForTimeout(1000)
 }
 async clickLoginButton(){
     await this.loginLink.click()
@@ -41,5 +43,9 @@ async verifyLoginFailure(username){
     await expect(welcomeMessage).not.toHaveText(`Welcome ${username}`)
     await expect(welcomeMessage).toBeHidden()
     console.log("Login failed, welcome message is not displayed as expected.")
+}
+async logout(){
+    await this.logoutLink.click()
+    await expect(this.page.locator('#nameofuser')).not.toBeVisible()
 }
 }

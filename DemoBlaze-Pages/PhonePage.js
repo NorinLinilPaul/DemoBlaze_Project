@@ -3,7 +3,7 @@ import { expect } from "@playwright/test"
 export class PhonePage{
     constructor(page){
     this.page=page    
-    this.addToCartBtn=page.getByRole('link', { name: 'Add to cart' }).first() //locate add to cart link on product details page
+    this.addToCartBtn=page.locator('a:has-text("Add to cart")') //locate add to cart link on product details page
 
     
     
@@ -19,6 +19,7 @@ async clickOnPhoneItem(phoneName){
         const itemName=await item.locator('h4.card-title').textContent()
         if(itemName && itemName.trim()===phoneName){
             await item.locator('h4.card-title a').click()
+            await this.addToCartBtn.waitFor({state:'visible'});
             break
         }
 
@@ -27,6 +28,7 @@ async clickOnPhoneItem(phoneName){
 async performAddToCart(){
      const currentUrl=await this.page.url()
      if(currentUrl.includes('prod.html')){
+        await this.addToCartBtn.waitFor({state:'visible'});
         this.cartdialogPromise = this.page.waitForEvent('dialog')
         await this.addToCartBtn.click()
      }

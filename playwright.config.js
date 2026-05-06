@@ -31,7 +31,7 @@ export default defineConfig({
     baseURL: 'https://www.demoblaze.com/',
     browserName: 'chromium',
     headless: false,
-    viewport: {width: 1280, height: 720},
+    viewport: {width: 1920, height: 1080},
     screenshot: 'only-on-failure',
     'retry-with-trace': true,
 
@@ -46,15 +46,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {

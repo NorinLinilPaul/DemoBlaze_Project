@@ -1,13 +1,22 @@
 export class SideMenuItemsPage{
     constructor(page){
     this.page=page
-    this.SideMenus=await page.locator("div[class='col-lg-3']")
-    this.PhonesMenu=await page.getByRole('link', { name: 'Phones' })
-    this.LaptopsMenu=await page.getByRole('link', { name: 'Laptops' })
-    this.MonitorsMenu=await page.getByRole('link', { name: 'Monitors' })
+    this.PhonesMenu=page.getByRole('link', { name: 'Phones' })
+    this.LaptopsMenu=page.getByRole('link', { name: 'Laptops' })
+    this.MonitorsMenu=page.getByRole('link', { name: 'Monitors' })
 
     }
 
+    async clickPhonesMenu() {
+        await this.PhonesMenu.click();
+    }
 
+    async clickLaptopsMenu() {
+        await this.LaptopsMenu.click();
+    }
+
+    async clickMonitorsMenu() {
+        await this.MonitorsMenu.click();
+    }
 
 }

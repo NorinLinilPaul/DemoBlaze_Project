@@ -11,9 +11,10 @@ const uniqueUsername = `testuser${Date.now()}`
 await signUp.goToWebsite('/') //call the goToWebsite method on the SignUpPage object to navigate to the website
 
 // Capture the returned credentials
-const credentials = await signUp.enterSignUpDetails(uniqueUsername,'Test@123') //call the enterSignUpDetails method on the SignUpPage object to enter the signup details and click on the signup button
-
+// const credentials = await signUp.enterSignUpDetails(uniqueUsername,'Test@123') //call the enterSignUpDetails method on the SignUpPage object to enter the signup details and click on the signup button
+await signUp.enterSignUpDetails(uniqueUsername,'Test@123')
 // Store credentials for use in login test
-fs.writeFileSync('credentials.json', JSON.stringify(credentials, null, 2))
-console.log('Credentials stored:', credentials)
+// fs.writeFileSync('credentials.json', JSON.stringify(credentials, null, 2))
+// console.log('Credentials stored:', credentials)
 });
+

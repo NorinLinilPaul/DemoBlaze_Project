@@ -16,8 +16,10 @@ await signUp.goToWebsite('/') //call the goToWebsite method on the SignUpPage ob
     await loginPage.clickLoginButton() 
     await loginPage.login(credentials.username, credentials.password); //call the enterSignUpDetails method on the SignUpPage object to enter the signup details and click on the signup button
     await loginPage.verifyLoginSuccess(credentials.username)
-  const phones=objectRepo.fetchPhonesPage()
-  
+  const sideMenu = objectRepo.fetchSideMenuItemsPage()
+  const phones = objectRepo.fetchPhonesPage()
+
+  await sideMenu.clickPhonesMenu()
   await phones.clickOnPhoneItem("Samsung galaxy s6")
   await phones.performAddToCart()
   await phones.confirmProductAddedToCart()
