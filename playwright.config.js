@@ -30,7 +30,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
     baseURL: 'https://www.demoblaze.com/',
     browserName: 'chromium',
-    headless: false,
+    headless: true,
     viewport: {width: 1920, height: 1080},
     screenshot: 'only-on-failure',
     'retry-with-trace': true,
